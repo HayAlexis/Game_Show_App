@@ -61,3 +61,70 @@ function checkLetter(button){
     }
     return matchLetter;
 }
+
+//Event Listner to the Keyboard
+qwerty.addEventListener('click', (e) =>{
+    if(e.target.tagName === 'BUTTON'){
+        e.target.className = 'chosen';
+        e.target.setAttribute('disabled', '');
+        let matchLetter = checkLetter(e.target);
+        if(matchLetter === null){
+            document.querySelectorAll('img')[missed].src='images/lostHeart.png';
+            e.target.className = 'mismatch';
+            missed ++;
+        }
+        checkWin();
+    }
+  })
+
+  //Miss Guesses
+  function checkWin() {
+    const letterClass = document.getElementsByClassName('letter');
+    const showClass = document.getElementsByClassName('show');
+
+    if (letterClass.length === showClass.length) {
+        overlay.style.display= 'flex';
+        overlay.className='win';
+        document.querySelector('h2').textContent = 'Yay!... you nailed it!';
+        document.querySelector('p').textContent = 'Well Done!';
+        playAgain();
+    } else if (missed > 4 ) {
+        overlay.style.display= 'flex';
+        overlay.className='lose';
+        document.querySelector('h2').textContent = 'Oops!... you lose!';
+        document.querySelector('p').textContent = 'Don\'t Give Up, Try Again! :)';
+         playAgain();
+    }   
+}
+
+//Reset Game
+function playAgain(){
+    startButton.textContent = 'Play Again';
+    startButton.style.backgroundColor = '#bee35a';
+    missed = 0;
+    ul.textContent = ' ';
+
+    const priorChosenLetters = document.querySelectorAll('.chosen');
+    const priorMismatchLetters = document.querySelectorAll('.mismatch');
+
+  for(let i = 0; i < priorChosenLetters.length; i++) {
+    priorChosenLetters[i].classList.remove('chosen');
+    priorChosenLetters[i].disabled = false;
+  }
+
+  for(let i = 0; i < priorMismatchLetters.length; i++) {
+    priorMismatchLetters[i].classList.remove('mismatch');
+    priorMismatchLetters[i].disabled = false;
+  }
+
+  // Get new phrase
+  const newPhrase = getRandomPhraseAsArray(phrases);
+  addPhraseToDisplay(newPhrase);
+
+  // Refill lives
+  const liveHearts = document.querySelectorAll('.tries img');
+  for(i = 0; i < liveHearts.length; i++) {
+    liveHearts[i].src = 'images/liveHeart.png';
+  }
+
+}
