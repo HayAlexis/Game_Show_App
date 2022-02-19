@@ -92,7 +92,7 @@ qwerty.addEventListener('click', (e) =>{
         overlay.style.display= 'flex';
         overlay.className='lose';
         document.querySelector('h2').textContent = 'Oops!... you lose!';
-        document.querySelector('p').textContent = 'Don\'t Give Up, Try Again! :)';
+        document.querySelector('p').textContent = 'Try Again!';
          playAgain();
     }   
 }
