@@ -99,8 +99,8 @@ qwerty.addEventListener('click', (e) =>{
 
 //Reset Game
 function playAgain(){
-    startButton.textContent = 'Play Again';
-    startButton.style.backgroundColor = '#bee35a';
+    start.textContent = 'Play Again';
+    start.style.backgroundColor = '#bee35a';
     missed = 0;
     ul.textContent = ' ';
 
