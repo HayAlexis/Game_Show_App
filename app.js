@@ -53,7 +53,7 @@ function checkLetter(button){
     let matchLetter = null;
 
     for ( let i = 0; i < letterList.length; i++) {
-        if (button.textContent === letterList[i].textContent) {
+        if (button.textContent === letterList[i].textContent.toLowerCase()) {
             letterList[i].classList.add('show');
             letterList[i].style.transition = '0.5s ease-in-out';
             matchLetter = true;
