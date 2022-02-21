@@ -70,7 +70,7 @@ qwerty.addEventListener('click', (e) =>{
         let matchLetter = checkLetter(e.target);
         if(matchLetter === null){
             document.querySelectorAll('img')[missed].src='images/lostHeart.png';
-            e.target.className = 'mismatch';
+            e.target.className = 'chosen';
             missed ++;
         }
         checkWin();
@@ -118,7 +118,7 @@ function playAgain(){
   }
 
   // Get new phrase
-  const newPhrase = getRandomPhraseAsArray(phrases);
+  const newPhrase = getRandomPhrasesAsArray(phrases);
   addPhraseToDisplay(newPhrase);
 
   // Refill lives
