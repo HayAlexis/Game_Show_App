@@ -1,6 +1,6 @@
 # Game_Show_App
 
-FEWD Project 6 --- 
+FEWD Project 6 --- Exceeds Expectations
 
 In this project, I created a browser version of “Wheel of Success”, a word guessing game. Used Javascript to come up with a random phrase that players will try to guess by entering different letters into the program.
 
